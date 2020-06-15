@@ -1,6 +1,6 @@
 
 
-### Step 1 — Generate a CSR code and share with Certificate Authority
+#### Step 1 — Generate a CSR code and share with Certificate Authority
 
 Now , How to generate a CSR code (Certificate Signing Request). on Apache/Nginx using OpenSSL 
 
@@ -19,14 +19,14 @@ to be sent with your certificate request
 A challenge password []:AnuRishKey'2020
 An optional company name []:AnuRish Brand Corp.   
 ```
-`anup@megatron:~$ ls -ltr`
-anurish_key.key
-anurish_key.csr
+`anup@megatron:~$ ls -ltr`  
+anurish_key.key  
+anurish_key.csr  
 
 `anup@megatron:~$ cat anurish_key.csr`
 
 
-### Step 2 — Download certificates and locate them
+#### Step 2 — Download certificates and locate them
 The Certificate Authority will email you a zip-archive with several .crt files.
 The zip-archive will contain the Certificate for your domain name (.crt) and the CA-Bundle (.ca-bundle) file.
 
