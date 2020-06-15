@@ -43,7 +43,7 @@ Keep these Certificactes to `/etc/ssl/certs/`
 /etc/ssl/certs/anurish_cert.ca-bundle
 ```
 
-### Step 3 — Configure Virtual Host Section
+### Step 3 — Configure Virtual Host Section (Domain block in NGINX)
 Apache server installed on the Ubuntu operating system, each site has a separate configuration that can be found at `/etc/apache2/sites-enabled/`
 ```
 <VirtualHost [IP ADDRESS]:443>
