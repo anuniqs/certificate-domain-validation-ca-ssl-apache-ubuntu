@@ -1,5 +1,4 @@
 
-### DV (Domain Validation) certificate installation 
 
 ### Step 1 — Generate a CSR code and share with Certificate Authority
 
