@@ -1,8 +1,7 @@
 
 
-#### Step 1 — Generate a CSR code and share with Certificate Authority
+#### Step 1 — Generate a CSR (Certificate Signing Request)
 
-Now , How to generate a CSR code (Certificate Signing Request). on Apache/Nginx using OpenSSL 
 
 `anup@megatron:~$ openssl req -new -newkey rsa:2048 -nodes -keyout anurish_key.key -out anurish_key.csr`
 ```
