@@ -44,12 +44,15 @@ Keep these Certificactes to `/etc/ssl/certs/`
 ```
 
 ### Step 3 — Configure Virtual Host Section (Domain block in NGINX)
-Apache server installed on the Ubuntu operating system, each site has a separate configuration that can be found at `/etc/apache2/sites-enabled/`
+Apache server installed on the Ubuntu operating system, each site has a separate configuration that can be found at `/etc/apache2/sites-enabled/`  
+
+`anup@megatron:~$ /etc/apache2/sites-enabled/try_domain.com.conf`
+
 ```
 <VirtualHost [IP ADDRESS]:443>
 	ServerAdmin uniqs.anup@gmail.com
 	DocumentRoot var/www
-	ServerName www.ssl-tutorials.com
+	ServerName try_domain.com
 	ErrorLog www/home/logs/error_log
 	SSLEngine on
 	SSLUseStapling on
