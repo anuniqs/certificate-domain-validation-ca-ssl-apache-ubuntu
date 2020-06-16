@@ -27,7 +27,7 @@ anurish_key.key
 anurish_key.csr  
 ```  
 
-**What Keys Contains**
+**What key contains**
 
 `anup@megatron:~$ cat anurish_key.key`
 `anup@megatron:~$ cat anurish_key.csr`
