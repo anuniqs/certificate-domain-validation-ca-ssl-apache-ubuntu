@@ -1,6 +1,6 @@
 
 
-#### Step 1 — Generate a CSR (Certificate Signing Request)
+### Step 1 — Generate a CSR (Certificate Signing Request)
 
 
 `anup@megatron:~$ openssl req -new -newkey rsa:2048 -nodes -keyout anurish_key.key -out anurish_key.csr`
@@ -30,7 +30,7 @@ anurish_key.csr
 `anup@megatron:~$ cat anurish_key.csr`
 
 
-#### Step 2 — Download certificates and locate them
+### Step 2 — Download certificates and locate them
 The Certificate Authority will email you a zip-archive with several .crt files.
 The zip-archive will contain the Certificate for your domain name (.crt) and the CA-Bundle (.ca-bundle) file.
 
