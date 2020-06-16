@@ -19,7 +19,7 @@ A challenge password []:AnuRishKey'2020
 An optional company name []:AnuRish Brand Corp.   
 ```
 
-**Find keys **
+**Find keys**
 
 `anup@megatron:~$ ls -ltr`  
 ```
@@ -27,7 +27,7 @@ anurish_key.key
 anurish_key.csr  
 ```  
 
-**What Keys Contains **
+**What Keys Contains**
 
 `anup@megatron:~$ cat anurish_key.key`
 `anup@megatron:~$ cat anurish_key.csr`
