@@ -67,4 +67,5 @@ Restart apache server `sudo systemctl status apache2` and browse your domain nam
 
 <hr />
 
-`@ AnuRish Brand Corp. , +91-9620481097 , uniqs.anup@gmail.com , https://www.linkedin.com/in/anuniqs/`
+`@ Anup Kumar Mondal, AnuRish Brand Corp. , +91-9620481097 , uniqs.anup@gmail.com , https://www.linkedin.com/in/anuniqs/`
+   
