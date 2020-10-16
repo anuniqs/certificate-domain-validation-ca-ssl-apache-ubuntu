@@ -1,37 +1,66 @@
-## Welcome to GitHub Pages
 
-You can use the [editor on GitHub](https://github.com/anuniqs/domain-validation-ssl/edit/gh-pages/index.md) to maintain and preview the content for your website in Markdown files.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+### Step 1 — Generate a CSR (Certificate Signing Request)
 
-### Markdown
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+`anup@megatron:~$ openssl req -new -newkey rsa:2048 -nodes -keyout anurish_key.key -out anurish_key.csr`
+```
+Country Name (2 letter code) [AU]:IN
+State or Province Name (full name) [Some-State]:KA
+Locality Name (eg, city) []:Bangalore
+Organization Name (eg, company) [Internet Widgits Pty Ltd]:AnuRish Brand Corp.
+Organizational Unit Name (eg, section) []:AnuRish IT     
+Common Name (e.g. server FQDN or YOUR name) []:Anup Kumar Mondal
+Email Address []:uniqs.anup@gmail.com
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+Please enter the following 'extra' attributes
+to be sent with your certificate request
+A challenge password []:AnuRishKey'2020
+An optional company name []:AnuRish Brand Corp.   
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+**Find keys**
 
-### Jekyll Themes
+`anup@megatron:~$ ls -ltr`  
+```
+anurish_key.key  
+anurish_key.csr  
+```  
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/anuniqs/domain-validation-ssl/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+**What key contains**
 
-### Support or Contact
+`anup@megatron:~$ cat anurish_key.key`  
+`anup@megatron:~$ cat anurish_key.csr`
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+
+### Step 2 — Get certificates from Certificate Authority and locate them
+The Certificate Authority will email you a zip-archive with several .crt files.
+The zip-archive will contain the Certificate for your domain name (.crt) and the CA-Bundle (.ca-bundle) file.
+
+Keep these Certificactes to `/etc/ssl/certs/`
+
+```
+/etc/ssl/certs/anurish_cert.crt
+/etc/ssl/certs/anurish_cert.key
+/etc/ssl/certs/anurish_cert.ca-bundle
+```
+
+### Step 3 — Configure Virtual Host Section (Domain block in NGINX)
+Apache server installed on the Ubuntu operating system, each site has a separate configuration that can be found at `/etc/apache2/sites-enabled/`  
+
+`anup@megatron:~$ /etc/apache2/sites-enabled/try_domain.com.conf`
+
+```
+<VirtualHost [IP ADDRESS]:443>
+	ServerAdmin uniqs.anup@gmail.com
+	DocumentRoot var/www
+	ServerName try_domain.com
+	ErrorLog www/home/logs/error_log
+	SSLEngine on
+	SSLUseStapling on
+	SSLCertificateFile /etc/ssl/certs/anurish_cert.crt
+	SSLCertificateKeyFile /etc/ssl/certs/anurish_cert.key
+	SSLCertificateChainFile /etc/ssl/certs/anurish_cert.ca-bundle
+</VirtualHost> 
+```
+Restart apache server `sudo systemctl status apache2` and browse your domain name to varify and for details visit https://www.sslshopper.com/ssl-checker.html
