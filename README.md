@@ -64,3 +64,8 @@ Apache server installed on the Ubuntu operating system, each site has a separate
 </VirtualHost> 
 ```
 Restart apache server `sudo systemctl status apache2` and browse your domain name to varify and for details visit https://www.sslshopper.com/ssl-checker.html
+
+
+.
+  
+**@ By — Anup Kumar Mondal**
